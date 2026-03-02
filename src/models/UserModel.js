@@ -46,6 +46,7 @@ UserSchema.pre("save", function(request, response, next){ // arrow functions bre
   // keep calling toString("hex") to save the data in a file friendly format
   // otherwise it's saved as a byte buffer
 
+  // TODO: figure this out
   // next(); understand why this isn't working
 });
 
