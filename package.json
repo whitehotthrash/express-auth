@@ -5,8 +5,12 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "node",
-    "dev:watch": ""
+    "start": "node src/serverBoot.js",
+    "dev": "node src/serverBoot.js",
+    "dev:watch": "node --watch src/serverBoot.js",
+    "db:seed": "",
+    "db:wipe": "",
+    "dev:setup": ""
   },
   "repository": {
     "type": "git",
