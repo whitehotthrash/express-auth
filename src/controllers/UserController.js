@@ -1,6 +1,7 @@
 const express = require("express");
 const { UserModel } = require("../models/UserModel");
-const { generateJwt } = require("../utils/jwtFunctions") 
+const { generateJwt } = require("../utils/jwtFunctions"); 
+const { verifyLoginMiddleware } = require("../middleware/jwtMiddleware");
 const router = express.Router();
 
 // User router/controller
@@ -40,13 +41,19 @@ router.post("/login", async (request, response) => {
     ? "jwt.goes.here"
     : "passwords do not match";
 
-  // TODO: JWTs
+  // // TODO: JWTs
 
   let resultJwt = generateJwt(foundUser)
 
   response.json({
-    result: pretendJwtHere,
+    result: resultJwt,
   });
 });
+
+router.get("/protectedRoute", verifyLoginMiddleware, (request, response) => {
+  response.json({
+    message: "You are logged in."
+  })
+})
 
 module.exports = router;

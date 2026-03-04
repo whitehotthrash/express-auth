@@ -16,10 +16,15 @@ function generateJwt(targetUser) {
   );
   return newJwt;
 }
+
 // Function to validate or verify a JWT
 function verifyJwt(targetJwt) {
   // verify the JWT to make sure it came from our system AND is still valid / has not expired
+  let decodedToken = jwt.verify(targetJwt, process.env.JWT_SECRET_KEY);
+
+  return decodedToken;
 }
+
 module.exports = {
   generateJwt,
   verifyJwt,
