@@ -1,5 +1,6 @@
 const express = require("express");
 const { UserModel } = require("../models/UserModel");
+const { generateJwt } = require("../utils/jwtFunctions") 
 const router = express.Router();
 
 // User router/controller
@@ -40,6 +41,9 @@ router.post("/login", async (request, response) => {
     : "passwords do not match";
 
   // TODO: JWTs
+
+  let resultJwt = generateJwt(foundUser)
+
   response.json({
     result: pretendJwtHere,
   });
