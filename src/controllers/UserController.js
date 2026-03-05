@@ -41,8 +41,6 @@ router.post("/login", async (request, response) => {
     ? "jwt.goes.here"
     : "passwords do not match";
 
-  // // TODO: JWTs
-
   let resultJwt = generateJwt(foundUser)
 
   response.json({
