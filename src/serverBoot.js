@@ -9,6 +9,6 @@ console.log(process.env.PORT);
 DatabaseUtils.dbConn().then(() => {
   // then run the server
   app.listen(process.env.PORT || 3000, () => {
-    console.log("App is running");
+    console.log("App is running, go hard king");
   });
 });
