@@ -37,7 +37,7 @@ router.post("/login", async (request, response) => {
   let doPasswordsMatch = foundUser.comparePassword(password);
 
   // if the comparison succeeds, the user can be logged in
-  let pretendJwtHere = doPasswordsMatch
+  let pretendJwtHere = doPasswordsMatch // fix this
     ? "jwt.goes.here"
     : "passwords do not match";
 
